@@ -9,7 +9,7 @@ async function loadDefaultWeather(): Promise<void> {
 
     const dashboard = document.querySelector<HTMLDivElement>('#weather-dashboard-container')
 
-    const defaultLocations = ["Londdon", "New York", "Tokyo"];
+    const defaultLocations = ["London", "New York", "Tokyo"];
 
     toggleLoader(true)
 

@@ -10,8 +10,11 @@ export function renderToDashboard(result) {
         card.className = 'card';
         if (item.status === "fulfilled") {
             const data = item.value;
+            const visual = weatherVisual(data.description);
             card.innerHTML = `
-                   <div class="sky">
+                   <div class="sky ${visual.className}" style="${visual.gradient}">
+                        ${visual.decor}
+                        
                         <img src="${data.iconUrl}" alt="${data.description}">
                         <div class="cityName">${data.cityName}</div>
                         <div class="country">${data.country}</div>
@@ -48,5 +51,23 @@ export function toggleLoader(show) {
     if (!loader)
         return;
     loader.style.display = show ? "flex" : "none";
+}
+// Put this function helper at the bottom of your dom.ts file
+function weatherVisual(description) {
+    const d = description.toLowerCase();
+    if (d.includes("night")) {
+        return { className: "default", gradient: "background: linear-gradient(160deg, #274472 0%, #0f1c38 100%);", decor: "" };
+    }
+    if (d.includes("sun") || d.includes("clear")) {
+        return { className: "sunny", gradient: "", decor: '<div class="sun-decor"></div>' };
+    }
+    if (d.includes("cloud")) { // Simplify: .includes("cloud") catches "cloudy" and "partly cloudy" automatically!
+        return { className: "cloudy", gradient: "", decor: '<div class="cloud-decor cloud1"></div><div class="cloud-decor cloud2"></div>' };
+    }
+    if (d.includes("rain") || d.includes("drizzle") || d.includes("storm") || d.includes("snow") || d.includes("mist") || d.includes("fog")) {
+        return { className: "default", gradient: "background: linear-gradient(160deg, #57768c 0%, #2f4a5c 100%);", decor: "" };
+    }
+    // Default daytime clear/blue sky fallback
+    return { className: "default", gradient: "background: linear-gradient(160deg, #7fb8e8 0%, #3f7fc9 100%);", decor: "" };
 }
 //# sourceMappingURL=dom.js.map
