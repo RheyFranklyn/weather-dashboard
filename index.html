@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-panel">
+        <div class="spinner"></div>
+        <div class="loader-text">Fetching live weather…</div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="heading">
+            <div class="eyebrow">The Micro-Weather</div>
+        <h1>Dashboard</h1>
+    </div>
+
+    <article id="weather-dashboard-container" class="grid"></article>
+
+    <script  src="./dist/ts/app.js" type="module"></script>
+</body>
+</html>
