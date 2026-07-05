@@ -311,16 +311,32 @@ body{
   .retry-btn:focus-visible{ outline:2px solid #ff453a; outline-offset:2px; }
   .retry-btn svg{ width:13px; height:13px; }
   
-@media (max-width:860px){
-.grid{ 
-    flex-direction:column;
-    max-width:380px; 
-    /* margin:0 auto;  */
+@media (max-width:900px){
+    .wrap{ max-width:640px; }
+    .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
 }
-.heading h1{ 
-    font-size:26px; 
+ 
+@media (max-width:560px){
+    body{ padding:40px 16px; }
+    .wrap{ max-width:420px; }
+    .grid{ grid-template-columns:1fr; gap:16px; }
+    .heading{ margin-bottom:26px; }
+    .sky{ height:130px; }
+    .sky img{ width:54px; height:54px; }
+    .sky .cityName{ font-size:17px; }
+    .body{ padding:14px 16px 16px; }
+    .temp{ font-size:30px; }
+    .description{ max-width:110px; }
+    .loader-panel{ padding:24px 30px; }
+    .skeleton, .error-state{ min-height:220px; }
 }
+ 
+@media (max-width:360px){
+    .heading h1{ font-size:22px; }
+    .sky{ height:120px; }
+    .temp{ font-size:27px; }
 }
+ 
 
 @media (prefers-reduced-motion: reduce){
     .card{ transition:none; }
